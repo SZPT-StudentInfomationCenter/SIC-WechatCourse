@@ -1,0 +1,472 @@
+body{
+	position:relative;
+    /*overflow:hidden;
+    -webkit-overflow-scrolling: auto;*/
+   overflow: hidden;
+}
+
+.wrap {
+  width: 100%;
+  height: 100%;
+}
+.loadingWrap{/*数据等待页面外框*/
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background-color: rgba(25,25,25,0.3);
+	z-index: 1999;
+	display: none;
+}
+.loading{/*数据等待页面*/
+	width: 53px;
+	height: 53px;
+	position: absolute;
+	top: 50%;
+	margin-top: -26.5px;
+	left: 50%;
+	margin-left: -26.5px;
+	border-radius: 10px;
+}
+
+
+/*头部样式开始//////////////////////////////////////////////*/
+.ClassesShow{
+	display: none;
+}
+
+
+
+
+
+/*/////////////////////////////////////////////课程标题显示/*/
+
+/*头部样式开始//////////////////////////////////////////////*/
+.header {/*//页面头部样式*/
+  width: 100%;
+  height: 52px;
+  background-color: #31b3e9;
+  text-align: center;
+  box-shadow: 0 3px 3px rgba(35, 24, 52, 0.1);
+  position: relative;
+}
+/*更多链接开始////////////////////////////////////////////////*/
+.morelink{
+	float: right;
+	padding: 16px;
+	width: auto;
+	height: auto;
+}
+.morelink a {
+	padding: 3px;
+}
+/*////////////////////////////////////////////////更多链接结束*/
+.weekBG {
+  width: 100%;
+  position: absolute;
+  background-color: rgba(25, 25, 25, 0.3);
+  display: none;
+  z-index: 1004;
+}
+.week {/*//周数显示标题样式*/
+  width: auto;
+  height: 24px;
+  font-size: 18px;
+  padding: 14px 0;
+  position: absolute;
+  left: 50%;
+}
+.week1{
+	position: absolute;
+}
+.week div {/*//周数显示里的两个DIV样式*/
+  float: left;
+}
+.week div:nth-child(2) {/*//上下箭头的显示样式*/
+  width: 24px;
+  height: 24px;
+  position: relative;
+  left: 4px;
+}
+.week div img {
+  width: 13px;
+  height: 10px;
+}
+.week2 {
+  display: none;
+}
+.WeekListWrap {/*//周数选取列表外边框*/
+  width: 58.66666667%;
+  height: 311px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  border: 1px solid #cccaca;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  z-index: 1005;
+  left: 50%;
+  margin-left: -29.33333333%;
+  top: 53px;
+  overflow: hidden;
+  display: none;
+}
+.WeekListWrapAni {
+  -webkit-animation: bounce .8s;
+  -moz-animation: bounce .8s;
+  -o-animation: bounce .8s;
+  -ms-animation: bounce .8s;
+  animation: bounce .8s;
+  -webkit-animation-fill-mode: forwards;
+  -ms-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  -o-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+.WeekList {/*//周数选取列表*/
+  width: 100%;
+  height: 274px;
+  padding: 10px 0 15px 0;
+  overflow: scroll;
+}
+.WeekList li {/*//周数选取列表样式*/
+  width: 100%;
+  height: 36px;
+  color: #31b3e9;
+  font-size: 18px;
+  line-height: 36px;
+  text-align: center;
+}
+/*到达当前周时需要的样式开始*/
+.WeekListLiOn{
+	background-color: #31b3e9 !important;
+	color: #FFFFFF !important;
+}
+
+/*到达当前周时需要的样式结束*/
+.WeekList li:hover {
+  color: #FFFFFF;
+  background-color: #31b3e9;
+}
+/*///////////////////////////////////////////////头部样式结束//*/
+
+
+
+
+/*//星期几的导航条样式开始/////////////////////////////////////*/
+.Nav {/*//导航条整体*/
+  width: 100%;
+  height: 66px;
+  background-color: #e2e8f6;
+}
+.navMain {/*//导航条主体*/
+  width: 94.93333333%;
+  height: 26px;
+  border-radius: 10px;
+  position: relative;
+  top: 20px;
+  left: 50%;
+  margin-left: -47.46666667%;
+  background-color: #31b3e9;
+  z-index: 999;
+}
+.navMain li {/*//导航条内的li样式*/
+  width: 14.28571429%;
+  height: 26px;
+  float: left;
+  text-align: center;
+  line-height: 26px;
+  font-size: 16px;
+}
+.navBublesWrap {/*//浮动泡泡的样式*/
+  width: 94.93333333%;
+  height: 48px;
+  padding: 9px 0;
+  margin-top: -27px;
+  position: relative;
+  left: 50%;
+  margin-left: -47.46666667%;
+}
+.bubles {/*//浮动泡泡的样式*/
+  width: 48px;
+  height: 48px;
+  box-sizing: border-box;
+  padding: 2.5px 2.5px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  text-align: center;
+  line-height: 48px;
+  position: absolute;
+  z-index: 1000;
+  line-height: 43px;
+  color: #31b3e9;
+  font-size: 16px;
+  box-shadow: 0 3px 3px rgba(35, 24, 52, 0.1);
+  display: none;
+}
+.new {
+  width: 100%;
+  height: 100%;
+  line-height: 43px;
+  color: #31b3e9;
+  font-size: 16px;
+}
+/*/////////////////////////////////////星期几的导航条样式结束//*/
+
+
+
+/*//页面主体开始//////////////////////////////////////////////*/
+.main {/*//页面整体样式*/
+  width: 92%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+.mainOff{
+	overflow: hidden !important;
+}
+.courseWrap{
+	width: 100%;
+	height: auto;
+	overflow-x: hidden;
+	/*overflow-y: scroll;*/
+}
+
+
+/*//没课时的列表显示开始/////////////////////////////////////////*/
+.noneclasses{
+	width: 189px;
+	height: 118px;
+	position: absolute;
+	left: 50%;
+	margin-left: -94.5px;
+	top: 50%;
+	margin-top: -59px;
+	display: none;
+	z-index: 1000;
+}
+.noneclasses img{
+	width: 100%;
+	height: 100%;
+}
+/*//没课时的列表显示结束////////////////////////////////////////*/
+
+
+
+
+/*//节数计算器样式开始/////////////////////////////////////////*/
+.classesCounter{
+	width: 190px;
+	height: auto;
+	padding: 20px 0 5px 0;
+	font-size: 18px;
+	color: #a0a6a6;
+	line-height: 36px;
+	text-align: center;
+	box-sizing: border-box;
+	position: relative;
+	left: 50%;
+	margin-left: -95px;
+}
+.classesCounter div{
+	width: 80px;
+	height: 36px;
+	float: left;
+	padding: 5px 0;
+}
+.classesCounter div:nth-child(1){
+	text-align: right;
+}
+.classesCounter div:nth-child(3){
+	text-align: left;
+}
+.classesCounter span{
+	width: auto;
+	height: auto;
+	font-size: 30px;
+	padding: 5px;
+	text-align: center;
+	color: #30a2de;
+	box-sizing: border-box;
+	float: left;
+}
+/*///////////////////////////////////////////节数计算器样式结束*/
+
+
+
+
+.course {/*//课程信息卡片样式*/
+  width: 100%;
+  height: auto;
+  margin-top: 15px;
+  position: relative;
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 3px rgba(35, 24, 52, 0.1);
+  display: block;
+}
+.course > div {/*//课程信息样式卡片之下一级的DIV样式*/
+  float: left;
+}
+
+/*上到的课的样式开始*/
+.colorBarOn{/*颜色条的颜色显示*/
+	background-color: #f28619 !important;
+}
+.courseInfoTitleOn{/*课程标题的颜色显示*/
+	color: #f28619 !important;
+}
+/*上到的课的样式结束，样式在Ani.js中触发*/
+
+
+.colorBar {/*//课程状态条的样式*/
+  width: 1.42045455%;
+  height: 100%;
+  background-color: #31b3e9;
+  position: absolute;
+}
+.courseInfo {/*//课程信息详细*/
+  width: 98.57954545%;
+  height: 100%;
+}
+.courseInfoTitle {/*//课程名字样式*/
+  width: auto;
+  max-width: 80%;
+  height: 16px;
+  padding: 24px 0 20px 21px;
+  color: #31b3e9;
+  font-size: 16px;
+  margin-left: 1.42045455%;
+  line-height: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.courseInfoTitle span{
+	width: 100%;
+	height: 100%;
+}
+.courseInfoTitleClick{
+	height: auto;
+  	white-space: pre-line;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+}
+.courseInfoAbout {/*//课程上课地点和节数整体样式*/
+  width: 100%;
+  height: 14px;
+  color: #a0a6a6;
+  line-height: 14px;
+  padding: 0 0 21px 0;
+  clear: both;
+  margin-left: 1.42045455%;
+}
+.courseLocation {/*//上课地点*/
+  width: auto;
+  height: 14px;
+  max-width: 50%;
+  padding: 0 0 0 21px;
+  float: left;
+  line-height: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.courseLocationOn{
+	height: auto;
+	white-space: pre-wrap;
+	padding: 0 0 21px 21px;
+	line-height: 16px;
+}
+.courseLocation img {/*//上课地点图标*/
+  width: 13px;
+  height: 13px;
+  float: left;
+  padding: 0 8px 0 0;
+}
+.notification {/*//节数提示样式*/
+  width: auto;
+  height: 14px;
+  padding: 0 34px 0 0;
+  float: right;
+  line-height: 14px;
+}
+.notification img {/*//节数提示样式图标*/
+  width: 13px;
+  height: 13px;
+  float: left;
+  margin-top: 1px;
+  padding: 0 8px 0 0;
+}
+
+
+
+/*//版权部分/////////////////////////////////////////////////*/
+.copyRight{
+	width: 100%;
+	height: auto;
+	bottom: 22px;
+	position: absolute;
+	text-align: center;
+}
+/*.copyRight:before{
+	content: '';
+	display: block;
+	width: 100%;
+	height: 10px;
+	background-color: #31b3e9;
+	position: relative;
+	top: -10px;
+}*/
+.copyRight img{
+	width: 55px;
+	height: 48px;
+	margin: 0 auto;
+}
+.copyRight p{
+	width: 100%;
+	height: auto;
+	font-size: 12px;
+	color: #a0a6a6;
+}
+.empty{
+	width: 100%;
+	height: 15px;
+}
+@media only screen and (min-width: 100px) and (max-width: 320px) {
+html{
+		position:relative;
+    overflow:hidden;
+    -webkit-overflow-scrolling: auto;
+	}
+body{
+		width: 100%;
+		/*height: 568px !important;*/
+	}
+.copyRight{
+	width: 100%;
+	height: auto;
+	position: relative;
+	top: 22px;
+}
+.copyRight img{
+	width: 55px;
+	height: 48px;
+	margin: 0 auto;
+}
+}
+
+@media only screen and (max-width: 320px) and (max-height: 480px) {
+html{
+		position:relative;
+    overflow:hidden;
+    -webkit-overflow-scrolling: auto;
+	}
+body{
+		width: 100%;
+		/*height: 480px !important;*/
+	}
+.wrap{
+		width: 100%;
+		height: 480px !important;
+	}
+}
+/*/////////////////////////////////////////////////版权部分//*/
+/*//////////////////////////////////////////////页面主体结束//*/
