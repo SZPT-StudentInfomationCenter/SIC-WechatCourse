@@ -168,6 +168,12 @@ $(document).ready(function(){
 		$(".courseShowWindow").css("background-color",bgColor);//将所点击的课程方块的颜色赋给信息窗
 	});
 	$(".courseShowWindowWrap").click(function(){//当点击信息窗任意位置时
-		$(this).stop().fadeOut(300);信息窗淡出
+		$(this).stop().fadeOut(300);//信息窗淡出
 	});
+	
+	
+	var sunday = $(".courseDIVWrap li:first-child")
+	var sundayContain = $(".courseDIVWrap li:first-child").html();
+	$(".courseDIVWrap").append("<li>" + sundayContain + "</li>");
+	sunday.remove();
 })

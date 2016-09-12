@@ -26,6 +26,9 @@ $(document).ready(function(){
 	
 	var dayH = $(".day ul").height();//获取周视图中星期几的导航条的高度
 	$(".day").width(docW);//设置周视图中星期导航条的宽度为100%
+	$(".day ul").width(docW - 38 + "px");
 	$(".weekShow").height(docH - headerH);//设置周视图的页面高度
-	$(".courseShowWrap").height(docH - headerH - dayH + 60);//设置周视图中课程显示区域的外框高度
+	$(".weekShowBg").height(docH - headerH);
+	$(".courseDIVWrap").width(docW - 38 + "px");
+	$(".courseShowWrap").height(docH - headerH - dayH + 30);//设置周视图中课程显示区域的外框高度
 })

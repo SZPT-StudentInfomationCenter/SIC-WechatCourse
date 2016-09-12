@@ -5,35 +5,59 @@
 }
 .weekShowBtn:hover{text-decoration: none;}
 .weekShowBtn:active{text-decoration: none;}
+.weekShowBg{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+}
+.weekShowBg img{
+	width: 298px;
+	height: auto;
+	position: absolute;
+	bottom: 67px;
+	right: 0;
+}
 .weekShow{/*周视图整体样式*/
 	position: absolute;
 	background-color: #FFFFFF;
 	display: none;
-	background-image: url(../img/weekShowBG.jpg);
 	overflow: hidden;
 }
 .day{/*显示周几的行的样式*/
 	width: 100%;
-	height: auto;
-	background-color: #31b3e9;
+	height: 38px;
+	background-color: #f0f3fa;
 	box-sizing: border-box;
-	border-top: 1px solid #F5F5F5;
 }
-.day ul{
-	width: 100%;
-	height: 100%;
-}
-.day ul li{/*星期几的样式*/
-	width: 12.857142%;
-	height: auto;
-	line-height: 19px;
-	padding: 10.5px 0;
+.month{
+	width: 37px;
+	height: 38px;
 	float: left;
 	text-align: center;
-	font-size: 12px;
+	line-height: 38px;
+	color: #f28619;
 }
-.day ul li:first-child{
-	margin-left: 10%;
+.day ul{
+	width: auto;
+	height: 100%;
+	float: left;
+}
+.day ul li{/*星期几的样式*/
+	width: 14.28571428%;
+	height: auto;
+	float: left;
+	padding: 3.5px 0;
+	text-align: center;
+	font-size: 12px;
+	color: #31b3e9;
+	box-sizing: border-box;
+	border-left: 1px solid #31B3E9;
+	border-bottom: 1px solid #31B3E9;
+}
+.day ul li span{
+	width: 100%;
+	height: auto;
+	display: inline-block;
 }
 .courseShowWrap{/*课程包括上课时间整体外框样式*/
 	width: 100%;
@@ -44,9 +68,9 @@
 	height: 100%;
 }
 .time{/*显示时间一栏的整体样式*/
-	width: 10%;
+	width: 38px;
 	height: 100%;
-	background-color: rgba(191, 190, 190, 0.9);
+	background-color: #f0f3fa;
 	float: left;
 }
 .time ul{
@@ -58,31 +82,36 @@
 	height: 10%;
 	float: left;
 	box-sizing: border-box;
-	border-top: 1px solid #5E5E5E;
+	border: 1px solid #31B3E9;
 	position: relative;
+	border-left: none;
+	border-top: none;
+	color: #31B3E9;
 }
 .time ul li:first-child{
-	border-top: none;
+	border-top: 1px solid #31B3E9;
 }
-.time ul li span{
+.time ul li div span{
 	width: 100%;
 	display: inline-block;
 	text-align: center;
 }
-.time ul li span:first-child{
+.time li div{
+	width: 100%;
+	height: 35px;
+	position: relative;
+	top: 50%;
+	margin-top: -17.5px;
+}
+.time ul li div span:first-child{
 	height: 17px;
 	line-height: 17px;
-	font-size: 14px;
-	position: absolute;
-	top: 50%;
-	margin-top: -8.5px;
+	font-size: 12px;
 }
-.time ul li span:last-child{
+.time ul li div span:last-child{
 	height: 12px;
 	line-height: 12px;
-	font-size: 10px;
-	position: absolute;
-	top: 0;
+	font-size: 12px;
 }
 .courseDIVWrap{/*课程显示区域的外框样式*/
 	width: 90%;
@@ -90,7 +119,7 @@
 	float: left;
 }
 .courseDIVWrap li{/*每一列周几的显示列的样式*/
-	width: 14.285714%;
+	width: 14.28571428%;
 	height: 100%;
 	float: left;
 	position: relative;
@@ -101,7 +130,7 @@
 	padding: 5px;
 	box-sizing: border-box;
 	background-color: rgba(25,25,25,0.5);
-	border: 0.5px solid #EEEEEE;
+	border-right: 1px solid #EEEEEE;
 	border-radius: 5px;
 	font-size: 12px;
 	position: absolute;
