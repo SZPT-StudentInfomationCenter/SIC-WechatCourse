@@ -30,8 +30,8 @@ $(document).ready(function(){
 	var courseTitleArr = [];//定义一个空的用来存储课程标题的数组
 	var courseLocationArr = [];//定义一个空的用来存储课程地点的数组
 	var notificationsArr = [];//定义一个空的用来存储课程开始上课时的节数的数组
-	var courseTitleArrB = courseTitleArr;
-	var courseTitleArrC = [];
+	var courseTitleArrB = [];
+	var usedColor = [];
 	
 	var colors = ["#eb9195","#79c6b2","#60c0e8","#efc16d","#f7a584","#81a3eb","#a093e0","#df8bb0","#a4ce6e","#86dca0"];//定一一个颜色数组
 	var newColors = [];
@@ -160,34 +160,31 @@ $(document).ready(function(){
 			//$(".courseDIV").eq(c).animate({height:classesTime*classHetght + "px"},0);
 		};
 		
-		
-		
-		$(".courseDIV").eq(c).css("background-color",function(){//对当前课程卡片选择一个随机色
-			var colorIndex = Math.floor( Math.random()*colors.length);
-			color = colors[ colorIndex ];
-			return color;
-		});
-		//var thisBgColor = $(".courseDIV").eq(c).css("background-color");//获取被点击的课程方块的背景色
-//		for(var p = 0 ; p != c ; p < courseTitleArrB.length , p ++){
-//			if(courseTitleArr[c] == courseTitleArrB[p]){
-//				var colorIndex = Math.floor( Math.random()*newColors.length);
-//				color = newColors[ colorIndex ];
-//				newColors.splice(colorIndex,1);
-//				$(".courseDIV").eq(c).css("background-color",color);
-//				$(".courseDIV").eq(p).css("background-color",color);
-//				courseTitleArrB.splice(p,1);
-////				courseTitleArrC.push(c);
-//			}
-//			else{
-//				var colorIndex = Math.floor( Math.random()*newColors.length);
-//				color = newColors[ colorIndex ];
-//				newColors.splice(colorIndex,1);
-//				$(".courseDIV").eq(c).css("background-color",color);
-////				courseTitleArrB.push(p);
-//			}
 	};
 	
+
+	for(var i=0;i<courseTitleArr.length;i++) {
 	
+		　　var items=courseTitleArr[i];
+	//		判断元素是否存在于new_arr中，如果不存在则插入到new_arr的最后
+		
+		　　if($.inArray(items,courseTitleArrB)==-1) {
+				var colorIndex = Math.floor( Math.random()*newColors.length);
+				color = newColors[ colorIndex ];
+				newColors.splice(colorIndex,1);
+				$(".courseDIV").eq(i).css("background-color",color);
+				courseTitleArrB.push(courseTitleArr[i]);
+				usedColor.push(color);
+		
+		　　}else{
+				for(var j = 0; j < courseTitleArrB.length ; j ++){
+					if(items == courseTitleArrB[j]){
+						$(".courseDIV").eq(i).css("background-color",usedColor[j]);
+					}
+				}
+		   }
+	
+	};
 	
 
 	
