@@ -30,13 +30,21 @@ $(document).ready(function(){
 	var courseTitleArr = [];//定义一个空的用来存储课程标题的数组
 	var courseLocationArr = [];//定义一个空的用来存储课程地点的数组
 	var notificationsArr = [];//定义一个空的用来存储课程开始上课时的节数的数组
+	var courseTitleArrB = courseTitleArr;
+	var courseTitleArrC = [];
+	
+	var colors = ["#eb9195","#79c6b2","#60c0e8","#efc16d","#f7a584","#81a3eb","#a093e0","#df8bb0","#a4ce6e","#86dca0"];//定一一个颜色数组
+	var newColors = [];
+	newColors = colors;
+	
+	
 	for(var c = 0 ; c < courseDIVNum ; c ++){//对每节课进行遍历
 		var notificationsLength = notifications.eq(c).text().split('-').length;//将当前课的值依据“-”来进行分割并计算长度
 		var notificationsLastOne = notifications.eq(c).text().split('-')[notificationsLength - 1];//获得每个当天课程节数的最后一个数字
 		courseTitleArr.push(courseTitle.eq(c).text());//将获得到的课程标题依次存储在课程标题数组中
 		courseLocationArr.push(courseLocation.eq(c).text());//将获得到的课程地点依次存储在课程地点数组中
 		notificationsArr.push(notifications.eq(c).text().split('-')[0]);//将获得到的课程开始上课时的节数依次存储在课程首节数组中
-		$(".courseDIV").eq(c).html(courseTitleArr[c] + "<br>" + "[" + courseLocationArr[c] + "]");//从数组中获取对应的值再写入课程方块中
+		$(".courseDIV").eq(c).html(courseTitleArr[c] + "<br>" + "(" + courseLocationArr[c] + ")");//从数组中获取对应的值再写入课程方块中
 		var classesTime;//定义一个用来存储当前课的上课节数的变量
 		
 		//首先对拿到的课程节数进行判断
@@ -152,17 +160,97 @@ $(document).ready(function(){
 			//$(".courseDIV").eq(c).animate({height:classesTime*classHetght + "px"},0);
 		};
 		
-		var colors = ["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#33B5E5","#FFBB33","#FF8800","#FF4444","#CC0000"];//定一一个颜色数组
+		
+		
 		$(".courseDIV").eq(c).css("background-color",function(){//对当前课程卡片选择一个随机色
-			color = colors[ Math.floor( Math.random()*colors.length ) ];
+			var colorIndex = Math.floor( Math.random()*colors.length);
+			color = colors[ colorIndex ];
 			return color;
 		});
+		//var thisBgColor = $(".courseDIV").eq(c).css("background-color");//获取被点击的课程方块的背景色
+//		for(var p = 0 ; p != c ; p < courseTitleArrB.length , p ++){
+//			if(courseTitleArr[c] == courseTitleArrB[p]){
+//				var colorIndex = Math.floor( Math.random()*newColors.length);
+//				color = newColors[ colorIndex ];
+//				newColors.splice(colorIndex,1);
+//				$(".courseDIV").eq(c).css("background-color",color);
+//				$(".courseDIV").eq(p).css("background-color",color);
+//				courseTitleArrB.splice(p,1);
+////				courseTitleArrC.push(c);
+//			}
+//			else{
+//				var colorIndex = Math.floor( Math.random()*newColors.length);
+//				color = newColors[ colorIndex ];
+//				newColors.splice(colorIndex,1);
+//				$(".courseDIV").eq(c).css("background-color",color);
+////				courseTitleArrB.push(p);
+//			}
 	};
+	
+	
+	
+
+	
+	var sunday = $(".courseDIVWrap li:first-child")
+	var sundayContain = $(".courseDIVWrap li:first-child").html();
+	$(".courseDIVWrap").append("<li>" + sundayContain + "</li>");
+	sunday.remove();
+	
+	
+	var weeks = new Date().getDay();  //获取目前的周数
+	
+	if(weeks == 0){
+		$(".month + ul li").eq(6).addClass("dayOn");
+	}
+	if(weeks == 1){
+		$(".month + ul li").eq(0).addClass("dayOn");
+		$(".month + ul li").eq(0).next().addClass("nextDayOn");
+	}
+	if(weeks == 2){
+		$(".month + ul li").eq(1).addClass("dayOn");
+		$(".month + ul li").eq(1).next().addClass("nextDayOn");
+	}
+	if(weeks == 3){
+		$(".month + ul li").eq(2).addClass("dayOn");
+		$(".month + ul li").eq(2).next().addClass("nextDayOn");
+	}
+	if(weeks == 4){
+		$(".month + ul li").eq(3).addClass("dayOn");
+		$(".month + ul li").eq(3).next().addClass("nextDayOn");
+	}
+	if(weeks == 5){
+		$(".month + ul li").eq(4).addClass("dayOn");
+		$(".month + ul li").eq(4).next().addClass("nextDayOn");
+	}
+	if(weeks == 6){
+		$(".month + ul li").eq(5).addClass("dayOn");
+		$(".month + ul li").eq(5).next().addClass("nextDayOn");
+	}
+	
+	var Ctime = new Date().toLocaleTimeString().split(" ");
+	var APM = Ctime[1];
+	var Time = Ctime[0].split(":");
+	if(APM == "AM"){
+		$(".time ul li:lt(3)").addClass("dayOn");
+	}else{
+		if(Time[0] >= 18){
+			$(".time ul li").eq(7).addClass("preTimeOn");
+			$(".time ul li:gt(8)").addClass("dayOn");
+		}else{
+			$(".time ul li").eq(3).addClass("preTimeOn");
+			$(".time ul li").eq(4).addClass("dayOn");
+			$(".time ul li").eq(5).addClass("dayOn");
+			$(".time ul li").eq(6).addClass("dayOn");
+			$(".time ul li").eq(7).addClass("dayOn");
+		}
+	}
+	
+	
 	$(".courseDIV").click(function(){//当点击一个课程方块时的操作
 		var bgColor = $(this).css("background-color");//获取被点击的课程方块的背景色
-		var className = $(this).html();//获得被点击的课程方块的值
+		var className = $(this).text();//获得被点击的课程方块的值
 		$(".courseShowWindowWrap").stop().fadeIn(300);//当点击之后显示一个信息窗
-		$(".courseShowWindow").html(className);//将所点击的课程方块内的值赋给信息窗
+		$(".courseShowWindow p").text(className);//将所点击的课程方块内的值赋给信息窗
 		var cswH = $(".courseShowWindow").height();//获得信息窗的高度
 		$(".courseShowWindow").animate({marginTop:-cswH/2 + "px"},0);//设置信息窗向上的偏移值
 		$(".courseShowWindow").css("background-color",bgColor);//将所点击的课程方块的颜色赋给信息窗
@@ -172,8 +260,4 @@ $(document).ready(function(){
 	});
 	
 	
-	var sunday = $(".courseDIVWrap li:first-child")
-	var sundayContain = $(".courseDIVWrap li:first-child").html();
-	$(".courseDIVWrap").append("<li>" + sundayContain + "</li>");
-	sunday.remove();
 })

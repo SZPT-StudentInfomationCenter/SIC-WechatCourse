@@ -36,6 +36,7 @@
 	text-align: center;
 	line-height: 38px;
 	color: #f28619;
+	background-color: #e2e8f6;
 }
 .day ul{
 	width: auto;
@@ -58,6 +59,14 @@
 	width: 100%;
 	height: auto;
 	display: inline-block;
+}
+.dayOn{
+	background-color: #f4e3d3 !important;
+	border-color: #F28619 !important;
+	color: #f28619 !important;
+}
+.nextDayOn{
+	border-left: 1px solid #F28619 !important;
 }
 .courseShowWrap{/*课程包括上课时间整体外框样式*/
 	width: 100%;
@@ -84,7 +93,6 @@
 	box-sizing: border-box;
 	border: 1px solid #31B3E9;
 	position: relative;
-	border-left: none;
 	border-top: none;
 	color: #31B3E9;
 }
@@ -95,6 +103,9 @@
 	width: 100%;
 	display: inline-block;
 	text-align: center;
+}
+.preTimeOn{
+	border-bottom: 1px solid #F28619 !important;
 }
 .time li div{
 	width: 100%;
@@ -131,30 +142,81 @@
 	box-sizing: border-box;
 	background-color: rgba(25,25,25,0.5);
 	border-right: 1px solid #EEEEEE;
+	border-top: 1px solid #EEEEEE;
 	border-radius: 5px;
 	font-size: 12px;
 	position: absolute;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	opacity: 0.9;
+	opacity: 0.85;
+}
+.courseDIVWrap li div:first-child{
+	margin-top: 1px;
+	border-top:none;
 }
 .courseShowWindowWrap{/*点击卡片弹出的框的背景样式*/
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(25,25,25,0.3);
-	z-index: 1003;
+	background-color: rgba(25,25,25,0.4);
+	z-index: 1998;
 	display: none;
 }
 .courseShowWindow{/*点击卡片弹出的框的样式*/
-	width: 80%;
+	width: 54%;
 	height: auto;
 	position: relative;
-	margin-left: -40%;
+	margin-left: -27%;
 	left: 50%;
 	top: 50%;
 	background-color: #05A6F0;
 	border-radius: 3px;
-	padding: 5px;
+	padding: 10px 13px;
 	text-align: center;
+}
+.courseShowWindow p{
+	width: 100%;
+	height: auto;
+}
+.courseShowWindow > div{
+	width: 100%;
+	height: 19px;
+}
+.courseShowWindow div div span{
+	width: auto;
+	max-width: 80%;
+	float: left;
+	margin-left: 6px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.courseShowWindow div div{
+	max-width: 50%;
+	height: 19px;
+}
+.profile{
+	width: auto;
+	height: auto;
+	float: left;
+	padding-top: 4px;
+	display: inline-block;
+}
+.profile img{
+	width: 10px;
+	height: 12px;
+	float: left;
+	padding: 3.5px 0;
+}
+.timeWeek{
+	width: auto;
+	height: auto;
+	float: right;
+	padding-top: 4px;
+}
+.timeWeek img{
+	width: 12px;
+	height: 12px;
+	float: left;
+	padding: 3.5px 0;
 }
